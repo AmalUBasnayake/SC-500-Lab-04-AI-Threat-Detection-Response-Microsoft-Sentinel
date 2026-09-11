@@ -75,7 +75,7 @@ This lab was designed to demonstrate the ability to:
 
 # 🏗️ Architecture
 
-![Architecture Diagram](Architecture/architecture-diagram.png)
+![Architecture Diagram](Evidence/architecture-diagram.png)
 
 ## Architecture Components
 
