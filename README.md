@@ -21,36 +21,7 @@ The objective was not simply to deploy an AI workload, but to implement an opera
 
 ### Security Workflow
 
-```text
-Azure AI Workload
-        │
-        ▼
-Azure AI Foundry
-        │
-        │ ModelRequests telemetry
-        ▼
-Azure Monitor
-        │
-        ▼
-Log Analytics Workspace
-        │
-        │ KQL detection
-        ▼
-Microsoft Sentinel
-        │
-        ▼
-Scheduled Analytics Rule
-        │
-        ▼
-Security Alert
-        │
-        ▼
-Incident
-        │
-        ├── Investigation
-        ├── Classification
-        └── Resolution
-```
+![ Security Workflow](Evidence/security_workflow.png)
 
 ---
 
