@@ -1,0 +1,262 @@
+// ============================================================================
+// SC-500 Lab 04
+// AI Threat Detection & Response with Microsoft Sentinel
+// KQL Detection & Telemetry Validation Queries
+//
+// Workspace : law-sc500-ai-sec
+// AI Resource: FOUNDRY-SC500-AI-SEC
+// Table     : AzureMetrics
+//
+// Purpose:
+//   Validate AI model telemetry and detect abnormal model-request activity
+//   using Microsoft Sentinel / Azure Monitor Logs.
+//
+// Note:
+//   These queries are based on the KQL used during the hands-on lab.
+//   Azure Monitor Logs and Microsoft Sentinel use Kusto Query Language (KQL).
+// ============================================================================
+
+
+// ----------------------------------------------------------------------------
+// 01. MODEL REQUEST TELEMETRY VALIDATION
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Confirm that the AI Foundry workload is generating ModelRequests
+//   telemetry in AzureMetrics.
+//
+// Use:
+//   Run this query after generating controlled AI model requests.
+//
+// Expected result:
+//   One or more rows containing ModelRequests activity.
+//
+// ---------------------------------------------------------------------------
+
+AzureMetrics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where MetricName == "ModelRequests"
+| project
+    TimeGenerated,
+    Resource,
+    MetricName,
+    Total,
+    Count,
+    Maximum,
+    Minimum,
+    Average
+| order by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// 02. MODEL REQUESTS AGGREGATED BY 5-MINUTE WINDOW
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Aggregate AI model invocations into five-minute windows.
+//   This was used to understand the normal/observed request pattern before
+//   creating the Sentinel detection rule.
+//
+// Detection concept:
+//   RequestCount >= 5 represents an abnormal request spike for this lab.
+//
+// ---------------------------------------------------------------------------
+
+AzureMetrics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where MetricName == "ModelRequests"
+| summarize
+    RequestCount = sum(Total),
+    PeakRequests = max(Maximum)
+    by bin(TimeGenerated, 5m)
+| order by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// 03. AI MODEL REQUEST SPIKE - DETECTION VALIDATION
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Validate that the detection condition produces a result when the
+//   controlled security test generates enough model requests.
+//
+// Threshold:
+//   Five or more model requests within a five-minute window.
+//
+// ---------------------------------------------------------------------------
+
+AzureMetrics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where MetricName == "ModelRequests"
+| summarize
+    RequestCount = sum(Total),
+    PeakRequests = max(Maximum)
+    by bin(TimeGenerated, 5m)
+| where RequestCount >= 5
+| order by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// 04. SENTINEL ANALYTICS RULE QUERY
+// ----------------------------------------------------------------------------
+// Rule name:
+//   AI Model Request Spike - SC500 Lab
+//
+// Severity:
+//   Medium
+//
+// Schedule:
+//   Every 5 minutes
+//
+// Lookup period:
+//   Last 5 minutes
+//
+// Incident:
+//   Create a Microsoft Sentinel incident when the query returns results.
+//
+// MITRE ATT&CK mapping used in the lab:
+//   T1499     - Endpoint Denial of Service
+//   T1499.002 - Service Exhaustion Flood
+//
+// ---------------------------------------------------------------------------
+
+AzureMetrics
+| where TimeGenerated > ago(5m)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where MetricName == "ModelRequests"
+| summarize
+    RequestCount = sum(Total),
+    PeakRequests = max(Maximum)
+    by bin(TimeGenerated, 5m)
+| where RequestCount >= 5
+
+
+// ----------------------------------------------------------------------------
+// 05. CONTROLLED TEST / INCIDENT VALIDATION QUERY
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Re-run the detection query against the recent telemetry window after
+//   generating controlled model requests.
+//
+// Expected lab result:
+//   A five-minute window with RequestCount >= 5.
+//
+// In the completed lab, the controlled test generated eight model requests
+// and the Sentinel analytics rule created an incident.
+//
+// ---------------------------------------------------------------------------
+
+AzureMetrics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where MetricName == "ModelRequests"
+| summarize
+    RequestCount = sum(Total),
+    PeakRequests = max(Maximum)
+    by bin(TimeGenerated, 5m)
+| where RequestCount >= 5
+| order by TimeGenerated desc
+
+
+// ----------------------------------------------------------------------------
+// 06. OPTIONAL METRIC DISCOVERY
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Discover which AzureMetrics are available for the AI Foundry resource.
+//   Useful when implementing the lab in another environment where the
+//   available metric names may differ.
+//
+// ---------------------------------------------------------------------------
+
+AzureMetrics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| summarize
+    Samples = count(),
+    TotalValue = sum(Total),
+    PeakValue = max(Maximum)
+    by MetricName
+| order by Samples desc
+
+
+// ----------------------------------------------------------------------------
+// 07. REQUEST/RESPONSE TELEMETRY DISCOVERY
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Confirm that Foundry diagnostic logs are reaching the Log Analytics
+//   workspace through the configured diagnostic setting.
+//
+// Note:
+//   The RequestResponse schema contains many fields and should be inspected
+//   in the target workspace before depending on specific prompt/response
+//   columns. The lab therefore used ModelRequests as the reliable detection
+//   signal.
+//
+// ---------------------------------------------------------------------------
+
+AzureDiagnostics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where Category == "RequestResponse"
+| summarize
+    Events = count()
+    by Resource, Category
+| order by Events desc
+
+
+// ----------------------------------------------------------------------------
+// 08. REQUEST/RESPONSE EVENTS - RECENT SAMPLE
+// ----------------------------------------------------------------------------
+// Purpose:
+//   Inspect recent RequestResponse events without assuming a fixed schema.
+//
+// ---------------------------------------------------------------------------
+
+AzureDiagnostics
+| where TimeGenerated > ago(1h)
+| where Resource =~ "FOUNDRY-SC500-AI-SEC"
+| where Category == "RequestResponse"
+| project TimeGenerated, Resource, Category, OperationName, ResultType
+| order by TimeGenerated desc
+
+
+// ============================================================================
+// ENGINEERING NOTES
+// ============================================================================
+//
+// 1. Azure Monitor Logs uses KQL for querying telemetry and log data.
+//
+// 2. AzureMetrics was used in this lab because ModelRequests was available
+//    as a reliable metric for validating AI model invocation activity.
+//
+// 3. AzureDiagnostics / RequestResponse telemetry was validated, but the
+//    RequestResponse schema did not expose a reliable prompt/response field
+//    for the detection objective used in this lab.
+//
+// 4. The production-style Sentinel detection query intentionally uses a
+//    short five-minute window and a threshold of five requests:
+//
+//       RequestCount >= 5
+//
+//    This threshold is LAB-SPECIFIC and should be baselined and tuned before
+//    production deployment.
+//
+// 5. KQL is read-only query language. The Sentinel analytics rule consumes
+//    the query result to generate an alert/incident when the condition is met.
+//
+// 6. The completed lab validated the full SOC flow:
+//
+//       AI Workload
+//          -> Azure Monitor Telemetry
+//          -> Log Analytics
+//          -> KQL Detection
+//          -> Sentinel Analytics Rule
+//          -> Alert
+//          -> Incident
+//          -> Investigation
+//          -> Classification
+//          -> Resolution
+//
+// ============================================================================
+// End of SC-500 Lab 04 KQL
+// ============================================================================
