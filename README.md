@@ -164,14 +164,14 @@ This confirmed that the model deployment was operational before generating secur
 
 ## Evidence
 
-```text
+
 ![15 foundry resource deployed](Evidence/15-foundry-resource-deployed.png)
 ![16 foundry project baseline](Evidence/16-foundry-project-baseline.png)
 ![17 foundry model deployment baseline](Evidence/17-foundry-model-deployment-baseline.png)
 ![18 foundry model details gpt56 luna](Evidence/18-foundry-model-details-gpt56-luna.png)
 ![20 foundry gpt56 luna deployed](Evidence/20-foundry-gpt56-luna-deployed.png)
 ![25 foundry controlled ai telemetry test](Evidence/25-foundry-controlled-ai-telemetry-test.png)
-```
+
 
 ---
 
@@ -194,11 +194,11 @@ law-sc500-ai-sec
 
 ## Evidence
 
-```text
+
 ![21 foundry diagnostic settings baseline](Evidence/21-foundry-diagnostic-settings-baseline.png)
 ![22 foundry diagnostic setting configuration](Evidence/22-foundry-diagnostic-setting-configuration.png)
 ![23 foundry diagnostic setting enabled](Evidence/23-foundry-diagnostic-setting-enabled.png)
-```
+
 
 ---
 
@@ -253,11 +253,11 @@ AzureMetrics
 
 ## Evidence
 
-```text
+
 ![32 foundry ai metrics confirmed](Evidence/32-foundry-ai-metrics-confirmed.png)
 ![33 foundry modelrequests confirmed](Evidence/33-foundry-modelrequests-confirmed.png)
 ![34 foundry modelrequests aggregated](Evidence/34-foundry-modelrequests-aggregated.png)
-```
+
 
 ---
 
@@ -316,10 +316,10 @@ This makes the detection useful even when request/response logging does not expo
 
 ## Evidence
 
-```text
+
 ![35 foundry modelrequests traffic spike](Evidence/35-foundry-modelrequests-traffic-spike.png)
 ![36 ai model request spike detection query](Evidence/36-ai-model-request-spike-detection-query.png)
-```
+
 
 ---
 
@@ -343,13 +343,13 @@ This makes the detection useful even when request/response logging does not expo
 
 ## Evidence
 
-```text
+
 ![37 sentinel ai request spike mitre mapping](Evidence/37-sentinel-ai-request-spike-mitre-mapping.png)
 ![38 sentinel ai request spike query scheduling](Evidence/38-sentinel-ai-request-spike-query-scheduling.png)
 ![39 sentinel incident settings](Evidence/39-sentinel-incident-settings.png)
 ![41 sentinel ai request spike rule review](Evidence/41-sentinel-ai-request-spike-rule-review.png)
 ![42 sentinel ai request spike rule enabled](Evidence/42-sentinel-ai-request-spike-rule-enabled.png)
-```
+
 
 ---
 
@@ -398,11 +398,11 @@ This demonstrated that the analytics rule could identify abnormal model invocati
 
 ## Evidence
 
-```text
+
 ![43 sentinel ai request spike incident created](Evidence/43-sentinel-ai-request-spike-incident-created.png)
 ![46 sentinel alert query result 8 requests](Evidence/46-sentinel-alert-query-result-8-requests.png)
 ![47 sentinel alert exact kql query](Evidence/47-sentinel-alert-exact-kql-query.png)
-```
+
 
 ---
 
@@ -436,12 +436,12 @@ The alert was successfully promoted into a Sentinel incident.
 
 ## Evidence
 
-```text
+
 ![43 sentinel ai request spike incident created](Evidence/43-sentinel-ai-request-spike-incident-created.png)
 ![45 sentinel alert details list](Evidence/45-sentinel-alert-details-list.png)
 ![46 sentinel alert query result 8 requests](Evidence/46-sentinel-alert-query-result-8-requests.png)
 ![47 sentinel alert exact kql query](Evidence/47-sentinel-alert-exact-kql-query.png)
-```
+
 
 ---
 
@@ -464,12 +464,12 @@ Investigation confirmed:
 
 ## Evidence
 
-```text
+
 ![44 sentinel incident investigation overview](Evidence/44-sentinel-incident-investigation-overview.png)
 ![45 sentinel alert details list](Evidence/45-sentinel-alert-details-list.png)
 ![48 sentinel incident evidence response baseline](Evidence/48-sentinel-incident-evidence-response-baseline.png)
 ![49 sentinel incident summary](Evidence/49-sentinel-incident-summary.png)
-```
+
 
 ---
 
@@ -489,9 +489,9 @@ Analysts must validate the context before determining whether an alert represent
 
 ## Evidence
 
-```text
+
 ![50 sentinel incident classified benign positive](Evidence/50-sentinel-incident-classified-benign-positive.png)
-```
+
 
 ---
 
@@ -531,9 +531,8 @@ Activities: 1
 
 ## Final Evidence
 
-```text
 ![52 sentinel incident resolved](Evidence/52-sentinel-incident-resolved.png)
-```
+
 
 ---
 
