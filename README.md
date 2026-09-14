@@ -21,7 +21,7 @@ The objective was not simply to deploy an AI workload, but to implement an opera
 
 ### Security Workflow
 
-![ Security Workflow](Evidence/security_workflow.png)
+[![Security Workflow](Architecture/security-workflow.png)](Architecture/security-workflow.png)
 
 ---
 
@@ -137,13 +137,29 @@ This confirmed that the model deployment was operational before generating secur
 
 ## Evidence
 
+[![Foundry Resource Deployed](Evidence/15-foundry-resource-deployed.png)](Evidence/15-foundry-resource-deployed.png)
 
-![15 foundry resource deployed](Evidence/15-foundry-resource-deployed.png)
-![16 foundry project baseline](Evidence/16-foundry-project-baseline.png)
-![17 foundry model deployment baseline](Evidence/17-foundry-model-deployment-baseline.png)
-![18 foundry model details gpt56 luna](Evidence/18-foundry-model-details-gpt56-luna.png)
-![20 foundry gpt56 luna deployed](Evidence/20-foundry-gpt56-luna-deployed.png)
-![25 foundry controlled ai telemetry test](Evidence/25-foundry-controlled-ai-telemetry-test.png)
+*Figure 1: Azure AI Foundry resource successfully deployed.*
+
+[![Foundry Project](Evidence/16-foundry-project-baseline.png)](Evidence/16-foundry-project-baseline.png)
+
+*Figure 2: Azure AI Foundry project baseline.*
+
+[![Model Deployment](Evidence/17-foundry-model-deployment-baseline.png)](Evidence/17-foundry-model-deployment-baseline.png)
+
+*Figure 3: AI model deployment configuration.*
+
+[![Model Details](Evidence/18-foundry-model-details-gpt56-luna.png)](Evidence/18-foundry-model-details-gpt56-luna.png)
+
+*Figure 4: GPT-5.6 Luna model deployment details.*
+
+[![Model Deployed](Evidence/20-foundry-gpt56-luna-deployed.png)](Evidence/20-foundry-gpt56-luna-deployed.png)
+
+*Figure 5: GPT-5.6 Luna deployment successfully completed.*
+
+[![Controlled AI Test](Evidence/25-foundry-controlled-ai-telemetry-test.png)](Evidence/25-foundry-controlled-ai-telemetry-test.png)
+
+*Figure 6: Controlled AI telemetry test executed successfully.*
 
 
 ---
@@ -167,10 +183,17 @@ law-sc500-ai-sec
 
 ## Evidence
 
+[![Diagnostic Settings Baseline](Evidence/21-foundry-diagnostic-settings-baseline.png)](Evidence/21-foundry-diagnostic-settings-baseline.png)
 
-![21 foundry diagnostic settings baseline](Evidence/21-foundry-diagnostic-settings-baseline.png)
-![22 foundry diagnostic setting configuration](Evidence/22-foundry-diagnostic-setting-configuration.png)
-![23 foundry diagnostic setting enabled](Evidence/23-foundry-diagnostic-setting-enabled.png)
+*Figure 7: Diagnostic settings baseline for the AI workload.*
+
+[![Diagnostic Configuration](Evidence/22-foundry-diagnostic-setting-configuration.png)](Evidence/22-foundry-diagnostic-setting-configuration.png)
+
+*Figure 8: Diagnostic categories configured for telemetry collection.*
+
+[![Diagnostic Setting Enabled](Evidence/23-foundry-diagnostic-setting-enabled.png)](Evidence/23-foundry-diagnostic-setting-enabled.png)
+
+*Figure 9: Diagnostic setting enabled and sending telemetry to Log Analytics.*
 
 
 ---
@@ -482,9 +505,9 @@ security test activity. No remediation was required.
 
 ## Evidence
 
-```text
-![51 sentinel incident investigation comment](Evidence/51-sentinel-incident-investigation-comment.png)
-```
+[![Investigation Comment](Evidence/51-sentinel-incident-investigation-comment.png)](Evidence/51-sentinel-incident-investigation-comment.png)
+
+*Figure 35: Investigation conclusion documented in the Sentinel incident.*
 
 ---
 
@@ -502,9 +525,11 @@ Alerts: 1
 Activities: 1
 ```
 
-## Final Evidence
+## Evidence
 
-![52 sentinel incident resolved](Evidence/52-sentinel-incident-resolved.png)
+[![Incident Resolved](Evidence/52-sentinel-incident-resolved.png)](Evidence/52-sentinel-incident-resolved.png)
+
+*Figure 36: Final Sentinel incident state showing resolution.*
 
 
 ---
@@ -710,247 +735,92 @@ Cost
 SC-500-Lab-04-AI-Threat-Detection-Response-Microsoft-Sentinel/
 │
 ├── README.md
-│
-├── Evidence/
-│   ├── 01-log-analytics-workspace-created.png
-│   ├── 02-sentinel-workspace-selection.png
-│   ├── ...
-│   ├── 50-sentinel-incident-classified-benign-positive.png
-│   ├── 51-sentinel-incident-investigation-comment.png
-│   └── 52-sentinel-incident-resolved.png
-│
-├── KQL/
-│   ├── model-request-spike-detection.kql
-│   └── telemetry-validation.kql
+├── LICENSE
 │
 ├── Architecture/
-│   └── architecture-diagram.png
+│   ├── architecture-diagram.png
+│   └── security-workflow.png
 │
-└── docs/
-    ├── SC-500-Mapping.md
-    └── MITRE-ATTACK-Mapping.md
+├── KQL/
+│   └── model-request-spike-detection.kql
+│
+└── Evidence/
+    ├── 01-log-analytics-workspace-created.png
+    ├── 02-sentinel-workspace-selection.png
+    ├── ...
+    ├── 50-sentinel-incident-classified-benign-positive.png
+    ├── 51-sentinel-incident-investigation-comment.png
+    └── 52-sentinel-incident-resolved.png
 ```
+
+> **Repository note:** The `docs/` directory is intentionally not included. SC-500 relevance and MITRE ATT&CK mapping are documented directly in this README, while the executable KQL is maintained in the `KQL/` directory.
 
 ---
 
 # 📸 Evidence Index
 
-The evidence set below provides a visual, step-by-step record of the lab from environment creation through final incident resolution.
-
-> **GitHub rendering:** Each screenshot is referenced with standard Markdown image syntax (`![alt text](Evidence/file.png)`) so GitHub renders the evidence directly instead of showing filenames inside a code block.
-
-### 01. 01 Log Analytics Workspace Created
-
-![Evidence 01](Evidence/01-log-analytics-workspace-created.png)
-
-### 02. 02 Sentinel Workspace Selection
-
-![Evidence 02](Evidence/02-sentinel-workspace-selection.png)
-
-### 03. 03 Microsoft Sentinel Enabled
-
-![Evidence 03](Evidence/03-microsoft-sentinel-enabled.png)
-
-### 04. 04 Sentinel Free Trial Activated
-
-![Evidence 04](Evidence/04-sentinel-free-trial-activated.png)
-
-### 05. 05 Sentinel Overview Baseline
-
-![Evidence 05](Evidence/05-sentinel-overview-baseline.png)
-
-### 06. 06 Ai Security Detection Rules Baseline
-
-![Evidence 06](Evidence/06-ai-security-detection-rules-baseline.png)
-
-### 07. 07 Foundry Environment Baseline
-
-![Evidence 07](Evidence/07-foundry-environment-baseline.png)
-
-### 08. 08 Foundry Resource Basics
-
-![Evidence 08](Evidence/08-foundry-resource-basics.png)
-
-### 09. 09 Foundry Inbound Networking Baseline
-
-![Evidence 09](Evidence/09-foundry-inbound-networking-baseline.png)
-
-### 10. 10 Foundry Outbound Networking
-
-![Evidence 10](Evidence/10-foundry-outbound-networking.png)
-
-### 11. 11 Foundry Managed Identity
-
-![Evidence 11](Evidence/11-foundry-managed-identity.png)
-
-### 12. 12 Foundry Data Encryption
-
-![Evidence 12](Evidence/12-foundry-data-encryption.png)
-
-### 13. 13 Foundry Resource Tags
-
-![Evidence 13](Evidence/13-foundry-resource-tags.png)
-
-### 14. 14 Foundry Resource Review
-
-![Evidence 14](Evidence/14-foundry-resource-review.png)
-
-### 15. 15 Foundry Resource Deployed
-
-![Evidence 15](Evidence/15-foundry-resource-deployed.png)
-
-### 16. 16 Foundry Project Baseline
-
-![Evidence 16](Evidence/16-foundry-project-baseline.png)
-
-### 17. 17 Foundry Model Deployment Baseline
-
-![Evidence 17](Evidence/17-foundry-model-deployment-baseline.png)
-
-### 18. 18 Foundry Model Details Gpt56 Luna
-
-![Evidence 18](Evidence/18-foundry-model-details-gpt56-luna.png)
-
-### 19. 19 Foundry Gpt56 Luna Deployment Settings
-
-![Evidence 19](Evidence/19-foundry-gpt56-luna-deployment-settings.png)
-
-### 20. 20 Foundry Gpt56 Luna Deployed
-
-![Evidence 20](Evidence/20-foundry-gpt56-luna-deployed.png)
-
-### 21. 21 Foundry Diagnostic Settings Baseline
-
-![Evidence 21](Evidence/21-foundry-diagnostic-settings-baseline.png)
-
-### 22. 22 Foundry Diagnostic Setting Configuration
-
-![Evidence 22](Evidence/22-foundry-diagnostic-setting-configuration.png)
-
-### 23. 23 Foundry Diagnostic Setting Enabled
-
-![Evidence 23](Evidence/23-foundry-diagnostic-setting-enabled.png)
-
-### 24. 24 Log Analytics Pre Traffic Baseline
-
-![Evidence 24](Evidence/24-log-analytics-pre-traffic-baseline.png)
-
-### 25. 25 Foundry Controlled Ai Telemetry Test
-
-![Evidence 25](Evidence/25-foundry-controlled-ai-telemetry-test.png)
-
-### 26. 26 Foundry Requestresponse Telemetry Confirmed
-
-![Evidence 26](Evidence/26-foundry-requestresponse-telemetry-confirmed.png)
-
-### 27. 27 Foundry Requestresponse Events Confirmed
-
-![Evidence 27](Evidence/27-foundry-requestresponse-events-confirmed.png)
-
-### 28. 28 Foundry Requestresponse Schema Discovered
-
-![Evidence 28](Evidence/28-foundry-requestresponse-schema-discovered.png)
-
-### 29. 29 Foundry Ai Telemetry Security Fields
-
-![Evidence 29](Evidence/29-foundry-ai-telemetry-security-fields.png)
-
-### 30. 30 Foundry Requestresponse Evals Availability
-
-![Evidence 30](Evidence/30-foundry-requestresponse-evals-availability.png)
-
-### 31. 31 Foundry Requestresponse Operation Baseline
-
-![Evidence 31](Evidence/31-foundry-requestresponse-operation-baseline.png)
-
-### 32. 32 Foundry Ai Metrics Confirmed
-
-![Evidence 32](Evidence/32-foundry-ai-metrics-confirmed.png)
-
-### 33. 33 Foundry Modelrequests Confirmed
-
-![Evidence 33](Evidence/33-foundry-modelrequests-confirmed.png)
-
-### 34. 34 Foundry Modelrequests Aggregated
-
-![Evidence 34](Evidence/34-foundry-modelrequests-aggregated.png)
-
-### 35. 35 Foundry Modelrequests Traffic Spike
-
-![Evidence 35](Evidence/35-foundry-modelrequests-traffic-spike.png)
-
-### 36. 36 Ai Model Request Spike Detection Query
-
-![Evidence 36](Evidence/36-ai-model-request-spike-detection-query.png)
-
-### 37. 37 Sentinel Ai Request Spike Mitre Mapping
-
-![Evidence 37](Evidence/37-sentinel-ai-request-spike-mitre-mapping.png)
-
-### 38. 38 Sentinel Ai Request Spike Query Scheduling
-
-![Evidence 38](Evidence/38-sentinel-ai-request-spike-query-scheduling.png)
-
-### 39. 39 Sentinel Incident Settings
-
-![Evidence 39](Evidence/39-sentinel-incident-settings.png)
-
-### 40. 40 Sentinel Automated Response Baseline
-
-![Evidence 40](Evidence/40-sentinel-automated-response-baseline.png)
-
-### 41. 41 Sentinel Ai Request Spike Rule Review
-
-![Evidence 41](Evidence/41-sentinel-ai-request-spike-rule-review.png)
-
-### 42. 42 Sentinel Ai Request Spike Rule Enabled
-
-![Evidence 42](Evidence/42-sentinel-ai-request-spike-rule-enabled.png)
-
-### 43. 43 Sentinel Ai Request Spike Incident Created
-
-![Evidence 43](Evidence/43-sentinel-ai-request-spike-incident-created.png)
-
-### 44. 44 Sentinel Incident Investigation Overview
-
-![Evidence 44](Evidence/44-sentinel-incident-investigation-overview.png)
-
-### 45. 45 Sentinel Alert Details List
-
-![Evidence 45](Evidence/45-sentinel-alert-details-list.png)
-
-### 46. 46 Sentinel Alert Query Result 8 Requests
-
-![Evidence 46](Evidence/46-sentinel-alert-query-result-8-requests.png)
-
-### 47. 47 Sentinel Alert Exact Kql Query
-
-![Evidence 47](Evidence/47-sentinel-alert-exact-kql-query.png)
-
-### 48. 48 Sentinel Incident Evidence Response Baseline
-
-![Evidence 48](Evidence/48-sentinel-incident-evidence-response-baseline.png)
-
-### 49. 49 Sentinel Incident Summary
-
-![Evidence 49](Evidence/49-sentinel-incident-summary.png)
-
-### 50. 50 Sentinel Incident Classified Benign Positive
-
-![Evidence 50](Evidence/50-sentinel-incident-classified-benign-positive.png)
-
-### 51. 51 Sentinel Incident Investigation Comment
-
-![Evidence 51](Evidence/51-sentinel-incident-investigation-comment.png)
-
-### 52. 52 Sentinel Incident Resolved
-
-![Evidence 52](Evidence/52-sentinel-incident-resolved.png)
-
-> **Evidence note:** Before publishing, review screenshots to ensure subscription IDs, tenant identifiers, email addresses, account information, and other sensitive metadata are not exposed.
+The complete evidence set provides a visual record of the lab from environment creation through final incident resolution.
+
+> **Evidence presentation:** Key screenshots are displayed in the relevant technical sections above as clickable thumbnails. The complete evidence set is available below as compact links.
+
+| # | Evidence | File |
+|---:|---|---|
+| 01 | Log Analytics Workspace Created | [`01-log-analytics-workspace-created.png`](Evidence/01-log-analytics-workspace-created.png) |
+| 02 | Sentinel Workspace Selection | [`02-sentinel-workspace-selection.png`](Evidence/02-sentinel-workspace-selection.png) |
+| 03 | Microsoft Sentinel Enabled | [`03-microsoft-sentinel-enabled.png`](Evidence/03-microsoft-sentinel-enabled.png) |
+| 04 | Sentinel Free Trial Activated | [`04-sentinel-free-trial-activated.png`](Evidence/04-sentinel-free-trial-activated.png) |
+| 05 | Sentinel Overview Baseline | [`05-sentinel-overview-baseline.png`](Evidence/05-sentinel-overview-baseline.png) |
+| 06 | AI Security Detection Rules Baseline | [`06-ai-security-detection-rules-baseline.png`](Evidence/06-ai-security-detection-rules-baseline.png) |
+| 07 | Foundry Environment Baseline | [`07-foundry-environment-baseline.png`](Evidence/07-foundry-environment-baseline.png) |
+| 08 | Foundry Resource Basics | [`08-foundry-resource-basics.png`](Evidence/08-foundry-resource-basics.png) |
+| 09 | Foundry Inbound Networking Baseline | [`09-foundry-inbound-networking-baseline.png`](Evidence/09-foundry-inbound-networking-baseline.png) |
+| 10 | Foundry Outbound Networking | [`10-foundry-outbound-networking.png`](Evidence/10-foundry-outbound-networking.png) |
+| 11 | Foundry Managed Identity | [`11-foundry-managed-identity.png`](Evidence/11-foundry-managed-identity.png) |
+| 12 | Foundry Data Encryption | [`12-foundry-data-encryption.png`](Evidence/12-foundry-data-encryption.png) |
+| 13 | Foundry Resource Tags | [`13-foundry-resource-tags.png`](Evidence/13-foundry-resource-tags.png) |
+| 14 | Foundry Resource Review | [`14-foundry-resource-review.png`](Evidence/14-foundry-resource-review.png) |
+| 15 | Foundry Resource Deployed | [`15-foundry-resource-deployed.png`](Evidence/15-foundry-resource-deployed.png) |
+| 16 | Foundry Project Baseline | [`16-foundry-project-baseline.png`](Evidence/16-foundry-project-baseline.png) |
+| 17 | Foundry Model Deployment Baseline | [`17-foundry-model-deployment-baseline.png`](Evidence/17-foundry-model-deployment-baseline.png) |
+| 18 | Foundry Model Details — GPT-5.6 Luna | [`18-foundry-model-details-gpt56-luna.png`](Evidence/18-foundry-model-details-gpt56-luna.png) |
+| 19 | GPT-5.6 Luna Deployment Settings | [`19-foundry-gpt56-luna-deployment-settings.png`](Evidence/19-foundry-gpt56-luna-deployment-settings.png) |
+| 20 | GPT-5.6 Luna Deployed | [`20-foundry-gpt56-luna-deployed.png`](Evidence/20-foundry-gpt56-luna-deployed.png) |
+| 21 | Foundry Diagnostic Settings Baseline | [`21-foundry-diagnostic-settings-baseline.png`](Evidence/21-foundry-diagnostic-settings-baseline.png) |
+| 22 | Foundry Diagnostic Setting Configuration | [`22-foundry-diagnostic-setting-configuration.png`](Evidence/22-foundry-diagnostic-setting-configuration.png) |
+| 23 | Foundry Diagnostic Setting Enabled | [`23-foundry-diagnostic-setting-enabled.png`](Evidence/23-foundry-diagnostic-setting-enabled.png) |
+| 24 | Log Analytics Pre-Traffic Baseline | [`24-log-analytics-pre-traffic-baseline.png`](Evidence/24-log-analytics-pre-traffic-baseline.png) |
+| 25 | Controlled AI Telemetry Test | [`25-foundry-controlled-ai-telemetry-test.png`](Evidence/25-foundry-controlled-ai-telemetry-test.png) |
+| 26 | Request/Response Telemetry Confirmed | [`26-foundry-requestresponse-telemetry-confirmed.png`](Evidence/26-foundry-requestresponse-telemetry-confirmed.png) |
+| 27 | Request/Response Events Confirmed | [`27-foundry-requestresponse-events-confirmed.png`](Evidence/27-foundry-requestresponse-events-confirmed.png) |
+| 28 | Request/Response Schema Discovered | [`28-foundry-requestresponse-schema-discovered.png`](Evidence/28-foundry-requestresponse-schema-discovered.png) |
+| 29 | AI Telemetry Security Fields | [`29-foundry-ai-telemetry-security-fields.png`](Evidence/29-foundry-ai-telemetry-security-fields.png) |
+| 30 | Request/Response Evals Availability | [`30-foundry-requestresponse-evals-availability.png`](Evidence/30-foundry-requestresponse-evals-availability.png) |
+| 31 | Request/Response Operation Baseline | [`31-foundry-requestresponse-operation-baseline.png`](Evidence/31-foundry-requestresponse-operation-baseline.png) |
+| 32 | AI Metrics Confirmed | [`32-foundry-ai-metrics-confirmed.png`](Evidence/32-foundry-ai-metrics-confirmed.png) |
+| 33 | ModelRequests Confirmed | [`33-foundry-modelrequests-confirmed.png`](Evidence/33-foundry-modelrequests-confirmed.png) |
+| 34 | ModelRequests Aggregated | [`34-foundry-modelrequests-aggregated.png`](Evidence/34-foundry-modelrequests-aggregated.png) |
+| 35 | ModelRequests Traffic Spike | [`35-foundry-modelrequests-traffic-spike.png`](Evidence/35-foundry-modelrequests-traffic-spike.png) |
+| 36 | AI Model Request Spike Detection Query | [`36-ai-model-request-spike-detection-query.png`](Evidence/36-ai-model-request-spike-detection-query.png) |
+| 37 | Sentinel AI Request Spike MITRE Mapping | [`37-sentinel-ai-request-spike-mitre-mapping.png`](Evidence/37-sentinel-ai-request-spike-mitre-mapping.png) |
+| 38 | Sentinel AI Request Spike Query Scheduling | [`38-sentinel-ai-request-spike-query-scheduling.png`](Evidence/38-sentinel-ai-request-spike-query-scheduling.png) |
+| 39 | Sentinel Incident Settings | [`39-sentinel-incident-settings.png`](Evidence/39-sentinel-incident-settings.png) |
+| 40 | Sentinel Automated Response Baseline | [`40-sentinel-automated-response-baseline.png`](Evidence/40-sentinel-automated-response-baseline.png) |
+| 41 | Sentinel AI Request Spike Rule Review | [`41-sentinel-ai-request-spike-rule-review.png`](Evidence/41-sentinel-ai-request-spike-rule-review.png) |
+| 42 | Sentinel AI Request Spike Rule Enabled | [`42-sentinel-ai-request-spike-rule-enabled.png`](Evidence/42-sentinel-ai-request-spike-rule-enabled.png) |
+| 43 | Sentinel AI Request Spike Incident Created | [`43-sentinel-ai-request-spike-incident-created.png`](Evidence/43-sentinel-ai-request-spike-incident-created.png) |
+| 44 | Sentinel Incident Investigation Overview | [`44-sentinel-incident-investigation-overview.png`](Evidence/44-sentinel-incident-investigation-overview.png) |
+| 45 | Sentinel Alert Details List | [`45-sentinel-alert-details-list.png`](Evidence/45-sentinel-alert-details-list.png) |
+| 46 | Sentinel Alert Query Result — 8 Requests | [`46-sentinel-alert-query-result-8-requests.png`](Evidence/46-sentinel-alert-query-result-8-requests.png) |
+| 47 | Sentinel Alert Exact KQL Query | [`47-sentinel-alert-exact-kql-query.png`](Evidence/47-sentinel-alert-exact-kql-query.png) |
+| 48 | Sentinel Incident Evidence / Response Baseline | [`48-sentinel-incident-evidence-response-baseline.png`](Evidence/48-sentinel-incident-evidence-response-baseline.png) |
+| 49 | Sentinel Incident Summary | [`49-sentinel-incident-summary.png`](Evidence/49-sentinel-incident-summary.png) |
+| 50 | Sentinel Incident Classified Benign Positive | [`50-sentinel-incident-classified-benign-positive.png`](Evidence/50-sentinel-incident-classified-benign-positive.png) |
+| 51 | Sentinel Incident Investigation Comment | [`51-sentinel-incident-investigation-comment.png`](Evidence/51-sentinel-incident-investigation-comment.png) |
+| 52 | Sentinel Incident Resolved | [`52-sentinel-incident-resolved.png`](Evidence/52-sentinel-incident-resolved.png) |
+
+> **Security note:** Before publishing evidence publicly, review screenshots to ensure subscription IDs, tenant identifiers, email addresses, account information, tokens, keys, URLs containing sensitive identifiers, and other sensitive metadata are not exposed.
 
 ---
-
 # 🏁 Final Outcome
 
 The lab successfully demonstrated an end-to-end **AI Security Detection & Response pipeline** using Microsoft Azure and Microsoft Sentinel.
