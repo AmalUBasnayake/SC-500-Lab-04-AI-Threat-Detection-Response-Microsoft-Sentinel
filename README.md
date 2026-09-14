@@ -830,27 +830,6 @@ The final validated workflow was:
 
 [![Final Outcome](Architecture/final_outcome.png)](Architecture/final_outcome.png)
 
-```text
-AI Model Request
-      ↓
-Telemetry
-      ↓
-Log Analytics
-      ↓
-KQL Detection
-      ↓
-Sentinel Analytics Rule
-      ↓
-Alert
-      ↓
-Incident
-      ↓
-Investigation
-      ↓
-Classification
-      ↓
-Resolution
-```
 
 ## Final Result
 
