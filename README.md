@@ -21,7 +21,7 @@ The objective was not simply to deploy an AI workload, but to implement an opera
 
 ### Security Workflow
 
-[![Security Workflow](Architecture/security-workflow.png)](Architecture/security-workflow.png)
+[![Security Workflow](Architecture/security_workflow.png)](Architecture/security-workflow.png)
 
 ---
 
