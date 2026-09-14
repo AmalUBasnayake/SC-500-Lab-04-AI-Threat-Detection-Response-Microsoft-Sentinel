@@ -48,7 +48,7 @@ This lab was designed to demonstrate the ability to:
 
 # 🏗️ Architecture
 
-![Architecture Diagram](Evidence/architecture-diagram.png)
+![SC-500 Lab 04 Architecture](Architecture/architecture-diagram.png)
 
 ## Architecture Components
 
