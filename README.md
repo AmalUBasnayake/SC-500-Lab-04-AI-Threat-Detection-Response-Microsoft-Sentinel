@@ -313,7 +313,7 @@ This makes the detection useful even when request/response logging does not expo
 ## Evidence
 
 
-![35 foundry modelrequests traffic spike](Evidence/35-foundry-modelrequests-traffic-spike.png)
+![35 foundry modelrequests traffic spike](Evidence/35-foundry-modelrequests-traffic-spike.png) 
 ![36 ai model request spike detection query](Evidence/36-ai-model-request-spike-detection-query.png)
 
 
