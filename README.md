@@ -434,7 +434,7 @@ The alert was successfully promoted into a Sentinel incident.
 
 
 ![43 sentinel ai request spike incident created](Evidence/43-sentinel-ai-request-spike-incident-created.png)
-![45 sentinel alert details list](Evidence/45-sentinel-alert-details-list.png)
+![45 sentinel alert details list](Evidence/45-sentinel-incident-alert-details-list.png)
 ![46 sentinel alert query result 8 requests](Evidence/46-sentinel-alert-query-result-8-requests.png)
 ![47 sentinel alert exact kql query](Evidence/47-sentinel-alert-exact-kql-query.png)
 
@@ -505,7 +505,8 @@ security test activity. No remediation was required.
 
 ## Evidence
 
-[![Investigation Comment](Evidence/51-sentinel-incident-investigation-comment.png)](Evidence/51-sentinel-incident-investigation-comment.png)
+[![Investigation Comment](Evidence/51-sentinel-incident-investigation-comment.png)]
+
 
 *Figure 35: Investigation conclusion documented in the Sentinel incident.*
 
