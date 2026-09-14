@@ -828,6 +828,8 @@ The lab successfully demonstrated an end-to-end **AI Security Detection & Respon
 
 The final validated workflow was:
 
+[![Final Outcome](Architecture/final_outcome.png)](Architecture/final_outcome.png)
+
 ```text
 AI Model Request
       ↓
