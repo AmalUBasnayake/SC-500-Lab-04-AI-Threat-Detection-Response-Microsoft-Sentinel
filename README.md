@@ -462,7 +462,7 @@ Investigation confirmed:
 
 
 ![44 sentinel incident investigation overview](Evidence/44-sentinel-incident-investigation-overview.png)
-![45 sentinel alert details list](Evidence/45-sentinel-alert-details-list.png)
+![45 sentinel alert details list](Evidence/45-sentinel-incident-alert-details-list.png)
 ![48 sentinel incident evidence response baseline](Evidence/48-sentinel-incident-evidence-response-baseline.png)
 ![49 sentinel incident summary](Evidence/49-sentinel-incident-summary.png)
 
