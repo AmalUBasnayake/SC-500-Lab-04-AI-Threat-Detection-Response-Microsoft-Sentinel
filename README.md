@@ -1,3 +1,5 @@
+![Banner](Evidence/banner.png)
+
 # 🛡️ SC-500 Lab 04 — AI Threat Detection & Response with Microsoft Sentinel
 
 > Hands-on Microsoft SC-500 Cloud & AI Security Engineer lab demonstrating AI workload telemetry, detection engineering, KQL analytics, Microsoft Sentinel alerting, incident investigation, classification, and resolution.
